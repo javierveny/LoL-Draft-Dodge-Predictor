@@ -1,0 +1,6 @@
+ipykernel
+jupyter
+pandas
+torch
+scikit-learn
+streamlit
