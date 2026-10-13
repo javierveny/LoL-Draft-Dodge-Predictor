@@ -1,6 +1,5 @@
 venv/
 
-data/
 *.csv
 *.jsonl
 *.db
