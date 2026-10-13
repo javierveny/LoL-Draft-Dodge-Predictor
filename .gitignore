@@ -7,3 +7,7 @@ venv/
 __pycache__/
 .ipynb_checkpoints/
 .DS_Store
+
+# excluded so you can use it
+!champions.json
+!champion_stats.csv
