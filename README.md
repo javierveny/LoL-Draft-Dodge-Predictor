@@ -12,6 +12,9 @@ A Machine Learning web application designed to evaluate draft synergies and coun
 
 This project utilizes a hybrid PyTorch neural network that combines Entity Embeddings (to map abstract champion synergies) with a robust engineered metadata set combining empirical Match-V5 data and static Data Dragon stats.
 
+Dataset Extraction
+The dataset of 60,000 matches used to train this model was collected using a separate Match Scraper built with the Riot Games API. You can view the data extraction methodology and source code in [this repository](https://github.com/javierveny/League-of-Legends-data-extractor).
+
 ### Features
 
 - Hybrid Neural Network: Processes both categorical data (Champion IDs) via embeddings and numerical metadata through a Multilayer Perceptron (MLP).
@@ -85,6 +88,9 @@ A Production API Key is requested to scale the dataset to several million matche
 Una aplicación web basada en Machine Learning diseñada para evaluar sinergias de draft y counter-picks en la cola Solo/Duo de alto ELO para League of Legends (Parche 16.18).
 
 Este proyecto utiliza una red neuronal híbrida en PyTorch que combina Entity Embeddings (para mapear sinergias abstractas de campeones) con un robusto conjunto de metadatos diseñados a partir de datos empíricos de Match-V5 y estadísticas estáticas de Data Dragon.
+
+Extracción del Dataset
+El dataset de 60.000 partidas utilizado para entrenar este modelo se recopiló mediante un extractor de partidas independiente construido con la API de Riot Games. Puedes consultar la metodología de extracción de datos y el código fuente en [este repositorio](https://github.com/javierveny/League-of-Legends-data-extractor).
 
 ### Características
 
