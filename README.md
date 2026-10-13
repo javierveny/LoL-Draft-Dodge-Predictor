@@ -61,14 +61,14 @@ The dataset of 60,000 matches used to train this model was collected using a sep
 To launch the interactive web application, ensure your virtual environment is active and run:
 
 ```bash
-streamlit run app_2.py
+streamlit run app.py
 ```
 
 This will open a new tab in your default web browser where you can input the Blue and Red team drafts to get real-time win probability predictions.
 
 ### Project Structure
 
-- app_2.py: The Streamlit frontend application containing the UI, data caching, and inference logic.
+- app.py: The Streamlit frontend application containing the UI, data caching, and inference logic.
 - main_2.ipynb: The Jupyter Notebook containing the PyTorch model architecture (LeaguePredictorSmall), the training loop, and the LeagueDataset class.
 - model/draft_v1.pth: The saved weights of the trained neural network.
 - data/: Directory containing the processed datasets (e.g., champion_stats.csv, matches_dataset.csv).
@@ -138,14 +138,14 @@ El dataset de 60.000 partidas utilizado para entrenar este modelo se recopiló m
 Para iniciar la aplicación web interactiva, asegúrate de que tu entorno virtual esté activo y ejecuta:
 
 ```bash
-streamlit run app_2.py
+streamlit run app.py
 ```
 
 Esto abrirá una nueva pestaña en tu navegador web predeterminado donde podrás introducir los drafts del equipo Azul y Rojo para obtener predicciones de probabilidad de victoria en tiempo real.
 
 ### Estructura del Proyecto
 
-- app_2.py: La aplicación frontend en Streamlit que contiene la interfaz, el sistema de caché y la lógica de inferencia.
+- app.py: La aplicación frontend en Streamlit que contiene la interfaz, el sistema de caché y la lógica de inferencia.
 - main_2.ipynb: El Jupyter Notebook que contiene la arquitectura del modelo en PyTorch (LeaguePredictorSmall), el bucle de entrenamiento y la clase LeagueDataset.
 - model/draft_v1.pth: Los pesos guardados de la red neuronal entrenada tras el proceso de aprendizaje.
 - data/: Directorio que contiene los conjuntos de datos procesados (ej. champion_stats.csv, matches_dataset.csv).
