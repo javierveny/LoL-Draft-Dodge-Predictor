@@ -33,8 +33,8 @@ The dataset of 60,000 matches used to train this model was collected using a sep
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/lol-draft-predictor.git
-   cd lol-draft-predictor
+   git clone https://github.com/javierveny/LoL-Draft-Dodge-Predictor.git
+   cd LoL-Draft-Dodge-Predictor
    ```
 
 2. Create a virtual environment:
@@ -62,6 +62,12 @@ To launch the interactive web application, ensure your virtual environment is ac
 
 ```bash
 streamlit run app.py
+```
+
+If it does not work try with this command.
+
+```bash
+python -m streamlit run app.py
 ```
 
 This will open a new tab in your default web browser where you can input the Blue and Red team drafts to get real-time win probability predictions.
@@ -110,8 +116,8 @@ El dataset de 60.000 partidas utilizado para entrenar este modelo se recopiló m
 1. Clonar el repositorio:
 
    ```bash
-   git clone https://github.com/tuusuario/lol-draft-predictor.git
-   cd lol-draft-predictor
+   git clone https://github.com/javierveny/LoL-Draft-Dodge-Predictor.git
+   cd LoL-Draft-Dodge-Predictor
    ```
 
 2. Crear un entorno virtual:
@@ -139,6 +145,12 @@ Para iniciar la aplicación web interactiva, asegúrate de que tu entorno virtua
 
 ```bash
 streamlit run app.py
+```
+
+Si no ha funcionado prueba con este otro comando
+
+```bash
+python -m streamlit run app.py
 ```
 
 Esto abrirá una nueva pestaña en tu navegador web predeterminado donde podrás introducir los drafts del equipo Azul y Rojo para obtener predicciones de probabilidad de victoria en tiempo real.
