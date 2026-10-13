@@ -64,6 +64,12 @@ To launch the interactive web application, ensure your virtual environment is ac
 streamlit run app.py
 ```
 
+If it does not work try with this command.
+
+```bash
+python -m streamlit run app.py
+```
+
 This will open a new tab in your default web browser where you can input the Blue and Red team drafts to get real-time win probability predictions.
 
 ### Project Structure
@@ -139,6 +145,12 @@ Para iniciar la aplicación web interactiva, asegúrate de que tu entorno virtua
 
 ```bash
 streamlit run app.py
+```
+
+Si no ha funcionado prueba con este otro comando
+
+```bash
+python -m streamlit run app.py
 ```
 
 Esto abrirá una nueva pestaña en tu navegador web predeterminado donde podrás introducir los drafts del equipo Azul y Rojo para obtener predicciones de probabilidad de victoria en tiempo real.
