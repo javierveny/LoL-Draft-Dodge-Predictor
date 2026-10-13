@@ -33,8 +33,8 @@ The dataset of 60,000 matches used to train this model was collected using a sep
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/lol-draft-predictor.git
-   cd lol-draft-predictor
+   git clone https://github.com/javierveny/LoL-Draft-Dodge-Predictor.git
+   cd LoL-Draft-Dodge-Predictor
    ```
 
 2. Create a virtual environment:
@@ -110,8 +110,8 @@ El dataset de 60.000 partidas utilizado para entrenar este modelo se recopiló m
 1. Clonar el repositorio:
 
    ```bash
-   git clone https://github.com/tuusuario/lol-draft-predictor.git
-   cd lol-draft-predictor
+   git clone https://github.com/javierveny/LoL-Draft-Dodge-Predictor.git
+   cd LoL-Draft-Dodge-Predictor
    ```
 
 2. Crear un entorno virtual:
