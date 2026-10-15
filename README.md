@@ -1,4 +1,4 @@
-# LoL Draft Synergy Predictor
+# [LoL Draft Synergy Predictor](https://github.com/javierveny/LoL-Draft-Dodge-Predictor)
 
 _Read this in [English](#english) | Leer en [Español](#español)_
 
