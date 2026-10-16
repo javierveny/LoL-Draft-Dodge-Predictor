@@ -74,6 +74,65 @@ class LeaguePredictorSmall(nn.Module):
         x_combined = torch.cat([embeds, x_meta], dim=1)
         return self.network(x_combined).squeeze(1)
 
+
+# ==========================================
+# 1.1 DEFINICIÓN DEL MODELO 2
+# ==========================================
+
+class LeaguePredictor(nn.Module):
+    def __init__(self, num_champions=1000, embed_dim=16, meta_features_dim=280):
+        super(LeaguePredictor, self).__init__()
+        
+        # 1. Capa de Embeddings
+        # Usamos num_champions=1000 porque los IDs de Riot no son 1-168 secuenciales (ej. Smolder es el 901)
+        self.champion_embedding = nn.Embedding(num_embeddings=num_champions, embedding_dim=embed_dim)
+        
+        # El tamaño de entrada a las capas densas será la suma de los embeddings aplanados (10 * 16 = 160)
+        # más todos los metadatos de la partida (280)
+        input_dim = (10 * embed_dim) + meta_features_dim
+        
+        # 2. Red Neuronal Densa (Multilayer Perceptron)
+        self.network = nn.Sequential(
+            nn.Linear(input_dim, 512),
+            nn.BatchNorm1d(512), # Estabiliza y acelera el entrenamiento
+            nn.ReLU(),
+            nn.Dropout(0.3),     # Apaga el 30% de las neuronas aleatoriamente para evitar sobreajuste
+            
+            nn.Linear(512, 256),
+            nn.BatchNorm1d(256),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+            
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            
+            # Capa de salida: 1 sola neurona
+            nn.Linear(128, 1),
+            nn.Sigmoid()         # Comprime el resultado matemático a una probabilidad exacta entre 0.0 y 1.0
+        )
+
+    def forward(self, x_champs, x_meta):
+        # x_champs shape: (batch_size, 10)
+        # x_meta shape:   (batch_size, 280)
+        
+        # Pasamos los IDs por la matriz espacial (Embeddings)
+        # Result: (batch_size, 10, 16)
+        embeds = self.champion_embedding(x_champs)
+        
+        # Aplanamos los embeddings de los 10 campeones en un solo vector de 160 posiciones
+        # Result: (batch_size, 160)
+        embeds = embeds.view(embeds.size(0), -1)
+        
+        # Concatenamos los Embeddings con las estadísticas crudas
+        # Result: (batch_size, 440)
+        x_combined = torch.cat([embeds, x_meta], dim=1)
+        
+        # Obtenemos la predicción de victoria
+        probability = self.network(x_combined)
+        
+        # Eliminamos la dimensión extra [batch_size, 1] -> [batch_size]
+        return probability.squeeze(1)
+
 # ==========================================
 # 2. CARGA DE DATOS Y PESOS
 # ==========================================
@@ -104,7 +163,7 @@ def load_data():
 
 @st.cache_resource
 def load_model():
-    model = LeaguePredictorSmall()
+    model = LeaguePredictor()
     model.load_state_dict(torch.load("model/draft_v1.pth", map_location=torch.device('cpu')))
     model.eval()
     return model
